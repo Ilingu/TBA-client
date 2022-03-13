@@ -1,0 +1,39 @@
+{
+  "name": "The Best Anime.io",
+  "short_name": "TBA",
+  "description": "Carve on the Blockchain your best anime !",
+  "icons": [
+    {
+      "src": "/Img/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/Img/ICON_TBA_192.ico",
+      "sizes": "192x192",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/Img/ICON_TBA_192.ico",
+      "sizes": "192x192",
+      "type": "image/x-icon",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/Img/ICON_TBA_256.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/Img/ICON_TBA_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "id": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#27272a",
+  "theme_color": "#eab308"
+}
