@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Mumbai",
+    "chainId": 80001
+  },
+  {
+    "name": "Polygon Mainnet",
+    "chainId": 137
+  },
+  {
+    "name": "Ethereum Mainnet",
+    "chainId": 1
+  },
+  {
+    "name": "Ropsten Testnet",
+    "chainId": 3
+  },
+  {
+    "name": "Rinkeby Testnet",
+    "chainId": 4
+  },
+  {
+    "name": "Goerli Testnet",
+    "chainId": 5
+  },
+  {
+    "name": "Kovan Testnet",
+    "chainId": 42
+  },
+  {
+    "name": "BSC Mainnet",
+    "chainId": 56
+  },
+  {
+    "name": "BSC Testnet",
+    "chainId": 97
+  },
+  {
+    "name": "Arbitrum One",
+    "chainId": 42161
+  },
+  {
+    "name": "Arbitrum Testnet",
+    "chainId": 421611
+  },
+  {
+    "name": "Avalanche",
+    "chainId": 43114
+  },
+  {
+    "name": "Avalanche Fuji",
+    "chainId": 43113
+  },
+  {
+    "name": "Fantom",
+    "chainId": 250
+  },
+  {
+    "name": "Fantom Testnet",
+    "chainId": 4002
+  },
+  {
+    "name": "ShibaChain",
+    "chainId": 27
+  }
+]

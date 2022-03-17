@@ -1,7 +1,7 @@
 {
   "name": "tba_client",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Carve on the Blockchain your best anime !",
   "keywords": [
     "Anime",
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ilingu/The-Best-Anime"
+    "url": "https://github.com/Ilingu/TBA-client"
   },
   "scripts": {
     "dev": "vite",

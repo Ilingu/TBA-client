@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import { Fetcher, NetworkToContractAddress } from "./utils";
+import { NetworkToContractAddress, AllSupportedChain } from "./utils";
 
 export const useAuthWeb3 = () => {
   const ethereum = window.ethereum;
@@ -29,7 +29,15 @@ export const useAuthWeb3 = () => {
   }, [network, address, provider, signer, ethereum]);
 
   const CheckEgibilityToReq = async () => {
-    if (network !== "0x13881" || !address || !provider || !signer || !ethereum)
+    const IntNetwork = parseInt(network || "s");
+    if (
+      isNaN(IntNetwork) ||
+      !AllSupportedChain.includes(IntNetwork) ||
+      !address ||
+      !provider ||
+      !signer ||
+      !ethereum
+    )
       setAllowReq(false);
     else setAllowReq(true);
   };
@@ -39,7 +47,10 @@ export const useAuthWeb3 = () => {
       const Network = await ethereum.request<string>({ method: "eth_chainId" });
 
       setNetwork(Network);
-      if (network !== "0x13881") {
+
+      const IntNetwork = parseInt(Network || "s");
+      console.log(AllSupportedChain.includes(IntNetwork));
+      if (isNaN(IntNetwork) || !AllSupportedChain.includes(IntNetwork)) {
         await ethereum.request({
           method: "wallet_switchEthereumChain",
           params: [{ chainId: "0x13881" }],
