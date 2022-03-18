@@ -45,11 +45,9 @@ export const useAuthWeb3 = () => {
   const NetworkInfo = async () => {
     try {
       const Network = await ethereum.request<string>({ method: "eth_chainId" });
-
       setNetwork(Network);
 
       const IntNetwork = parseInt(Network || "s");
-      console.log(AllSupportedChain.includes(IntNetwork));
       if (isNaN(IntNetwork) || !AllSupportedChain.includes(IntNetwork)) {
         await ethereum.request({
           method: "wallet_switchEthereumChain",
@@ -92,7 +90,8 @@ export const useAuthWeb3 = () => {
 export const useContract = (
   provider: ethers.providers.Web3Provider | undefined,
   network: string | undefined,
-  allowed: boolean
+  allowed: boolean,
+  signer: ethers.providers.JsonRpcSigner | undefined
 ) => {
   const [Contract, setContract] = useState<ethers.Contract>();
   const { data: ContractABI } = useQuery("repoData", () =>
@@ -113,10 +112,27 @@ export const useContract = (
     const BAContract = new ethers.Contract(
       ContractAddress,
       ContractABI,
-      provider
+      signer || provider
     );
     setContract(BAContract);
   }, [allowed, ContractABI, network]);
 
   return Contract;
+};
+
+export const useETHPrice = (): number => {
+  const API_ETH_PRICE =
+    "https://api.coingecko.com/api/v3/coins/ethereum?localization=false&tickers=false&community_data=false&developer_data=false&sparkline=false";
+
+  const { data, error } = useQuery(
+    "EthPrice",
+    () =>
+      fetch(API_ETH_PRICE)
+        .then((res) => res.json())
+        .then((res) => res.market_data.current_price.usd ?? null),
+    { refetchInterval: 30000 }
+  );
+
+  error && console.error(error);
+  return data as number;
 };
