@@ -1,7 +1,7 @@
 {
   "name": "tba_client",
   "private": true,
-  "version": "0.2.0",
+  "version": "1.0.0-rc.1",
   "description": "Carve on the Blockchain your best anime !",
   "keywords": [
     "Anime",
@@ -22,12 +22,15 @@
   },
   "dependencies": {
     "ethers": "^5.6.0",
+    "lodash.debounce": "^4.0.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hot-toast": "^2.2.0",
     "react-query": "^3.34.16"
   },
   "devDependencies": {
     "@metamask/providers": "^8.1.1",
+    "@types/lodash.debounce": "^4.0.6",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@vitejs/plugin-react": "^1.0.7",

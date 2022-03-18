@@ -22,7 +22,8 @@ const NavBar: FC<NavBarProps> = ({ address, NetworkName, ConnectedToNet }) => {
           className="rounded-lg bg-yellow-500 p-2 text-black  transition-all focus:ring-2 
           focus:ring-yellow-700"
         >
-          Network: <span className="font-bold">{NetworkName}</span>
+          <span className="hidden sm:inline">Network:</span>{" "}
+          <span className="font-bold">{NetworkName}</span>
         </button>
       </div>
       <div className="flex items-center justify-center">
@@ -30,7 +31,8 @@ const NavBar: FC<NavBarProps> = ({ address, NetworkName, ConnectedToNet }) => {
           className="rounded-lg bg-yellow-500 p-2 font-bold text-black transition-all focus:ring-2 
           focus:ring-yellow-700"
         >
-          Contract {ConnectedToNet ? "Connected" : "Not Connected"}
+          <span className="hidden sm:inline">Contract</span>{" "}
+          {ConnectedToNet ? "Connected" : "Not Connected"}
         </button>
       </div>
     </nav>

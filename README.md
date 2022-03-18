@@ -15,7 +15,7 @@
 
 ### Release
 
-[![SITE](https://img.shields.io/badge/TBA%20release-rc%2010-blue?style=for-the-badge)]()
+[![SITE](https://img.shields.io/badge/TBA%20release-rc%201-blue?style=for-the-badge)]()
 
 ## Technologies
 

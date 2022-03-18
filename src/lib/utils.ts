@@ -3,24 +3,30 @@ import { ChainIdShape, NetworksNamesShape } from "../types/interface";
 import ChainInfo from "./data/ChainInfo.json";
 import * as ContractAddress from "./data/ContractAddress";
 
-export const Fetcher = async (url: string) => {
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    return data;
-  } catch (err) {
-    return false;
-  }
-};
-
 export const AllSupportedChain = [80001, 3, 4, 5, 42, 97, 421611, 43113];
 
+/**
+ * Reformat Images' Urls
+ * @param {string} photoUrl
+ */
+export const ReformatImagesUrls = (photoUrl: string) =>
+  photoUrl.split("?s=")[0];
+
+/**
+ * Return The ChainId of a network
+ * @param {string} networkName
+ * @returns {ChainIdShape} ChainIdShape
+ */
 export const StrNetwork = (networkName: string): ChainIdShape => {
   const ChainName = ChainInfo.find(({ name }) => name === networkName);
   return (ChainName?.chainId as ChainIdShape) || "Unknown";
 };
 
+/**
+ * Return The Network Name of a network chainId
+ * @param {string} network
+ * @returns {NetworksNamesShape} NetworksNamesShape
+ */
 export const NetworkToStr = (network: string): NetworksNamesShape => {
   const NetInt = parseInt(network);
   if (isNaN(NetInt)) return "Unknown";
@@ -29,6 +35,10 @@ export const NetworkToStr = (network: string): NetworksNamesShape => {
   return (ChainName?.name as NetworksNamesShape) || "Unknown";
 };
 
+/**
+ * Return The Contract Address of the current network
+ * @param {string} network
+ */
 export const NetworkToContractAddress = (network: string) => {
   const NetInt = parseInt(network);
   if (isNaN(NetInt)) return "Unknown Contract";
@@ -59,15 +69,36 @@ export const NetworkToContractAddress = (network: string) => {
   return "Unknown Contract";
 };
 
-export const WeiToEth = (Wei: number | string) =>
-  parseFloat(formatEther(BigInt(parseInt(Wei.toString()))));
+/**
+ * Convert Wei To Eth
+ * @param {number | string} Wei
+ * @returns {number} Eth Value
+ */
+export const WeiToEth = (Wei: number | string): number => {
+  Wei = parseFloat(Wei.toString());
+  if (isNaN(Wei)) return 0;
+  return Wei / Math.pow(10, 18);
+};
+
+/**
+ * Convert Eth To Wei
+ * @param {number | string} eth
+ * @returns Wei Value
+ */
 export const EthToWei = (eth: number | string) => parseEther(eth.toString());
 
+/**
+ * Return the price of nETH in USD
+ * @param {number} ETHPrice
+ * @param {string | number} NoEth
+ * @param {"0" | "1"} Units
+ * @returns {number} USD Value
+ */
 export const EthToUSD = (
   ETHPrice: number,
   NoEth: string | number,
   Units: "0" | "1"
-) => {
+): number => {
   NoEth = parseFloat(NoEth.toString());
   if (isNaN(ETHPrice) || isNaN(NoEth)) return 0;
   if (Units === "1") NoEth = WeiToEth(NoEth);
