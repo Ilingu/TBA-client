@@ -2,6 +2,8 @@ import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { NetworkToContractAddress, AllSupportedChain } from "./utils";
+// ABI
+import { abi as ContractABI } from "./data/BestAnimeABI.json";
 
 export const useAuthWeb3 = () => {
   const ethereum = window.ethereum;
@@ -96,11 +98,6 @@ export const useContract = (
   signer: ethers.providers.JsonRpcSigner | undefined
 ) => {
   const [Contract, setContract] = useState<ethers.Contract>();
-  const { data: ContractABI } = useQuery("repoData", () =>
-    fetch("/BestAnimeABI.json")
-      .then((res) => res.json())
-      .then((res) => res.abi)
-  );
 
   const ResetContract = () => setContract(undefined);
 
@@ -117,7 +114,7 @@ export const useContract = (
       signer || provider
     );
     setContract(BAContract);
-  }, [allowed, ContractABI, network]);
+  }, [allowed, network]);
 
   return Contract;
 };
