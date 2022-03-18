@@ -2,20 +2,20 @@
 
 #### **TBA is a dApp that store on any blockchain your best anime**
 
-[![SITE](https://forthebadge.com/images/badges/check-it-out.svg)]()
+[![SITE](https://forthebadge.com/images/badges/check-it-out.svg)](https://thebestanime.vercel.app/)
 
 ## Site Info
 
-[![SITE](https://img.shields.io/maintenance/yes/2022?style=for-the-badge)]()
+[![SITE](https://img.shields.io/maintenance/yes/2022?style=for-the-badge)](https://thebestanime.vercel.app/)
 
 ### Up ⬆ Or Down ⬇
 
-[![SITE](https://img.shields.io/website-up-down-green-red/https/ack.vercel.app.svg?style=for-the-badge)]()  
-[![SITE](https://therealsujitk-vercel-badge.vercel.app/?app=ack)](https://vercel.com/)
+[![SITE](https://img.shields.io/website-up-down-green-red/https/thebestanime.vercel.app.svg?style=for-the-badge)](https://thebestanime.vercel.app/)  
+[![SITE](https://therealsujitk-vercel-badge.vercel.app/?app=tba)](https://vercel.com/)
 
 ### Release
 
-[![SITE](https://img.shields.io/badge/TBA%20release-rc%201-blue?style=for-the-badge)]()
+[![SITE](https://img.shields.io/badge/TBA%20release-rc%201-blue?style=for-the-badge)](https://thebestanime.vercel.app/)
 
 ## Technologies
 
@@ -24,7 +24,7 @@
 
 ## Compatibilities
 
-[![SITE](https://img.shields.io/static/v1?label=Compatibility%20With&message=ALL&color=C13B3A&style=for-the-badge)]()
+[![SITE](https://img.shields.io/static/v1?label=Compatibility%20With&message=ALL&color=C13B3A&style=for-the-badge)](https://thebestanime.vercel.app/)
 
 ## Uninteresting stuff
 
