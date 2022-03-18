@@ -19,7 +19,9 @@ export const useAuthWeb3 = () => {
 
     // Listeners
     try {
-      ethereum.on("accountsChanged", (accounts) => setAddress(accounts[0]));
+      ethereum.on("accountsChanged", (accounts) =>
+        setAddress((accounts as string[])[0])
+      );
       ethereum.on("chainChanged", async () => Init());
     } catch (err) {}
   }, [ethereum]);
@@ -45,7 +47,7 @@ export const useAuthWeb3 = () => {
   const NetworkInfo = async () => {
     try {
       const Network = await ethereum.request<string>({ method: "eth_chainId" });
-      setNetwork(Network);
+      setNetwork(Network || "Nothing");
 
       const IntNetwork = parseInt(Network || "s");
       if (isNaN(IntNetwork) || !AllSupportedChain.includes(IntNetwork)) {
